@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
+
+ const singers = [
+  {name: 'Dr. Mahfuz', job: 'Singer'},
+  {name: 'Eva Rahman', job: 'Singer2'},
+  {name: 'Agun', job: 'sopno'},
+  {name: 'shuvro', job: 'pathor'}
+]
+
+
 function App() {
+
+  const nayoks = ['Rubel', 'Bappa raj', 'Kuber', 'Jashim', 'Salman Shah', 'Riyaz', 'Anwar'];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        nayoks.map(nayok => <Person name={nayok}></Person>)
+      }
+
+      {
+        singers.map(singer => <Person name={singer.name}></Person>)
+      }
+      <Friend name="kala jahangir" phone="01777"></Friend>
+      <Friend name="daud ibrahim" phone="01999"></Friend>
     </div>
   );
+}
+
+function Person(props){
+  return (
+    <div className="person">
+      <h1>{props.name}</h1>
+  </div>
+  )
+}
+
+function Friend(props){
+  // console.log(props);
+  return (
+    <div className='container'>
+      <h3>Name: {props.name}</h3>
+      <p>phone: {props.phone}</p>
+    </div>
+  )
 }
 
 export default App;
